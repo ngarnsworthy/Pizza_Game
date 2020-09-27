@@ -129,6 +129,7 @@ class VampireSprite(sprite.Sprite):
                 self.image = EXPLOSION.copy()
                 self.speed = 0
                 self.despawn_wait = 20
+                explosion_sound = pygame.mixer.Sound('./Assets/leisure_video_game_retro_8bit_explosion_003.wav')
             game_window.blit(self.image, (self.rect.x, self.rect.y))
         elif self.despawn_wait <= 0:
             self.kill()
@@ -275,6 +276,8 @@ class PlayTile(BackgroundTile):
                 counters.buck_booster += 1
             if trap == PROJECTILE:
                 cannon_coordinates.append((self.rect.x, self.rect.y))
+            Place_Sound = pygame.mixer.Sound('./Assets/leisure_video_game_retro_8bit_coin_pickup_collect_003.wav')
+            Place_Sound.play()
         return None
 
     def draw_trap(self, game_window, trap_applicator):
@@ -469,6 +472,8 @@ while program_running and current_level < len(Level_setup):
             end_surf = end_font.render('Game Over',True, WHITE)
             GAME_WINDOW.blit(end_surf, (350, 200))
             display.update()
+            Game_Over_sound = pygame.mixer.Sound('./Assets/little_robot_sound_factory_Hero_Death_00.wav')
+            Game_Over_sound.play() 
         elif current_level < len(level_setup):
             cont_surf = end_font.render('Press Enter for Level ' + str(current_level + 1), True, WHITE)
             GAME_WINDOW.blit(cont_surf, (150, 400))
@@ -483,7 +488,7 @@ while program_running and current_level < len(Level_setup):
                         if event.key == K_RETURN:
                             waiting_at_prompt = False
         else:
-            End_Sound = pygame.mixer.Sound('zapsplat_multimedia_game_sound_digital_high_pitched_positive_success_complete_tone_55832')
+            End_Sound = pygame.mixer.Sound('./Assets/zapsplat_multimedia_game_sound_digital_high_pitched_positive_success_complete_tone_55832')
             End_Sound.play()
             end_surf = end_font.render('You Won!!!', True, WHITE)
             GAME_WINDOW.blit(end_surf, (350, 200))
