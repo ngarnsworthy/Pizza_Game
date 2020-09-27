@@ -147,7 +147,11 @@ class VampireSprite(sprite.Sprite):
         if tile.trap == DAMAGE:
             self.health -= 1
         if tile.trap == MINE:
-            self.health = 0
+            self.health = 0 
+    def kill(self):
+        kill_sound = pygame.mixer.Sound('./Assets/little_robot_sound_factory_Hit_00.wav')
+        kill_sound.play()
+
 class WerePizza(VampireSprite):
     def __init__(self):
         super(WerePizza, self).__init__()
