@@ -1,0 +1,1 @@
+pyinstaller ./end.py --add-data Assets;Assets --noconfirm
