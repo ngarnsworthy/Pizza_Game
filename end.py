@@ -5,6 +5,7 @@ from random import randint, choice
 
 #inisalition
 pygame.init()
+pygame.mixer.init()
 
 clock = time.Clock()
 
@@ -101,8 +102,6 @@ CANNON = transform.scale(cannon_surf, (WIDTH, HEIGHT))
 anchovy_img = image.load('./Assets/anchovy.png')
 anchovy_surf = Surface.convert_alpha(anchovy_img)
 ANCHOVY = transform.scale(anchovy_surf, (WIDTH, HEIGHT))
-
-
 #------------------------------------------------
 #set up clases
 
@@ -221,6 +220,8 @@ class Counters(object):
         for location in cannon_coordinates:
             if self.loop_count % self.fire_rate == 0:
                 Anchovy(location)
+                Anchovy_Sound = pygame.mixer.Sound('./Assets/zapsplat_multimedia_game_sound_digital_fast_collect_item_002_55830.wav')
+                Anchovy_Sound.play()
     def draw_bucks(self, game_window):
         if bool(self.bucks_rect):
             game_window.blit(BACKGROUND, (self.bucks_rect.x, self.bucks_rect.y), self.bucks_rect)
@@ -482,6 +483,8 @@ while program_running and current_level < len(Level_setup):
                         if event.key == K_RETURN:
                             waiting_at_prompt = False
         else:
+            End_Sound = pygame.mixer.Sound('zapsplat_multimedia_game_sound_digital_high_pitched_positive_success_complete_tone_55832')
+            End_Sound.play()
             end_surf = end_font.render('You Won!!!', True, WHITE)
             GAME_WINDOW.blit(end_surf, (350, 200))
             display.update()

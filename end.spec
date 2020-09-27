@@ -4,9 +4,9 @@ block_cipher = None
 
 
 a = Analysis(['end.py'],
-             pathex=['D:\\vampire_pizza_dir'],
+             pathex=['C:\\Users\\Trane\\Documents\\GitHub\\Pizza_Game'],
              binaries=[],
-             datas=[('Assets', 'assets')],
+             datas=[('Assets', 'Assets')],
              hiddenimports=[],
              hookspath=[],
              runtime_hooks=[],
