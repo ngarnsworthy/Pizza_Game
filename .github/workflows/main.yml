@@ -26,8 +26,7 @@ jobs:
       - name: Make install files.
         run: |
           python - m pip install --upgrade pip ,
-          pip install pyinstaller 
-          ,
+          pip install pyinstaller ,
           pyinstaller ./end.py --add-data Assets;Assets --noconfirm
         
       - name: Upload a Build Artifact
