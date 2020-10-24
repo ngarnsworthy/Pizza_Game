@@ -27,7 +27,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip,
           python -m pip install pyinstaller,
-          build.cmd,
+          pyinstaller ./end.py --add-data Assets;Assets --noconfirm
         
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v2.2.0
