@@ -29,8 +29,8 @@ jobs:
           python -m pip install pyinstaller,
           build.cmd,
         
-        - name: Upload a Build Artifact
-          uses: actions/upload-artifact@v2.2.0
-          with:     
-            path: ./build
-            # A file, directory or wildcard pattern that describes what to upload
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v2.2.0
+        with:     
+          path: ./build
+          # A file, directory or wildcard pattern that describes what to upload
